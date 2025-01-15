@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 const dictionaryUrl = 'https://1rnoszgn46.execute-api.us-east-1.amazonaws.com/multi-details';
 
 
+
 function WordList() {
     const [words, setWords] = useState([]);
     const [activeButton, setActiveButton] = useState(0);
@@ -20,7 +21,7 @@ function WordList() {
             <h3>Subjects</h3>
             {words.map((word) => {
                 return (
-                    <button className={activeButton === word.id ?  "bg-black" : "bg-white" } key={word.id} onClick={activeButton} >
+                    <button className="bg-white text-blue" key={word.id} onClick={activeButton} >
                         <p>{word.title}</p>
                     
                     </button>
