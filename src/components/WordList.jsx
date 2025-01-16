@@ -15,13 +15,12 @@ function WordList() {
             .then((data) => setWords(data.dictionaries));
     }, []); 
 
-
     return (
         <>
-            <h3>Subjects</h3>
+           
             {words.map((word) => {
                 return (
-                    <button className="bg-white text-blue" key={word.id} onClick={activeButton} >
+                    <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-3xl mx-8 my-8" key={word.id} onClick={setActiveButton} >
                         <p>{word.title}</p>
                     
                     </button>
