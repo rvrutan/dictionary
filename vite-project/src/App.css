@@ -1,9 +1,24 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+.bg-black {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 5px;
+}
 
+.bg-white {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 5px;
+}
 /* #root {
   max-width: 1280px;
   margin: 0 auto;
