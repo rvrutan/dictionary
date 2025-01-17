@@ -13,8 +13,10 @@ function WordList({ tag }) {
   useEffect(() => {
     setLoading(true);
     setError(null);
+    
+    const defaultTag = tag ? tag : ''
 
-    fetch(`${wordsApiUrl}?tag=${tag}`)
+    fetch(`${wordsApiUrl}?tag=${defaultTag}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Failed to fetch words');
@@ -22,7 +24,7 @@ function WordList({ tag }) {
         return response.json();
       })
       .then((data) => {
-        setWords(data.words);
+        setWords(data);
         setLoading(false);
       })
       .catch((err) => {
@@ -39,7 +41,7 @@ function WordList({ tag }) {
       <h3 className="text-lg font-semibold">Words:</h3>
       <ul className="list-disc pl-5">
         {words.map((word, index) => (
-          <li key={index}>{word}</li>
+          <li key={index}>{word.word}</li>
         ))}
       </ul>
     </div>
