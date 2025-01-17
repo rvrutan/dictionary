@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import WordList from './WordList'; // Import the WordList component
 
 const dictionaryUrl =
   'https://1rnoszgn46.execute-api.us-east-1.amazonaws.com/multi-details';
@@ -39,7 +40,8 @@ function DictionaryList() {
           <div>
             <h2 className="text-xl font-bold">{activeDictionary.title}</h2>
             <p>{activeDictionary.description}</p>
-            {/* Display more details as needed */}
+            {/* Pass the tag to the WordList component */}
+            <WordList tag={activeDictionary.tag} />
           </div>
         ) : (
           <p>Select a dictionary to view details</p>

@@ -2,6 +2,8 @@
 import './App.css';
 import { Home } from './components/Home';
 import DictionaryList from './components/DictionaryList';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import WordList from './components/WordList';
 
 function App() {
   return (
@@ -9,6 +11,7 @@ function App() {
       <div className="bg-red-300">
         <Home />
         <DictionaryList />
+        {/* <WordList /> */}
       </div>
     </>
   );
