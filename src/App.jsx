@@ -1,14 +1,14 @@
 // import { useState } from 'react'
 import './App.css';
 import { Home } from './components/Home';
-import WordList from './components/WordList';
+import DictionaryList from './components/DictionaryList';
 
 function App() {
   return (
     <>
       <div className="bg-red-300">
         <Home />
-        <WordList />
+        <DictionaryList />
       </div>
     </>
   );
