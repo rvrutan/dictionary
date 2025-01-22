@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 const wordsApiUrl =
-  'https://1rnoszgn46.execute-api.us-east-1.amazonaws.com/only-words';
+  "https://1rnoszgn46.execute-api.us-east-1.amazonaws.com/only-words";
 const definitionApiUrl =
-  'https://1rnoszgn46.execute-api.us-east-1.amazonaws.com/by-id?id=';
+  "https://1rnoszgn46.execute-api.us-east-1.amazonaws.com/by-id?id=";
 
 function WordList({ tag }) {
   const [words, setWords] = useState([]);
@@ -21,12 +21,12 @@ function WordList({ tag }) {
     setLoading(true);
     setError(null);
 
-    const defaultTag = tag ? tag : '';
+    const defaultTag = tag ? tag : "";
 
     fetch(`${wordsApiUrl}?tag=${defaultTag}`)
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Failed to fetch words');
+          throw new Error("Failed to fetch words");
         }
         return response.json();
       })
@@ -49,7 +49,7 @@ function WordList({ tag }) {
     fetch(`${definitionApiUrl}${wordObj._id}`)
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Failed to fetch definition');
+          throw new Error("Failed to fetch definition");
         }
         return response.json();
       })
@@ -96,7 +96,7 @@ function WordList({ tag }) {
   return (
     <div>
       <h3 className="text-2xl font-semibold p-4">Words:</h3>
-      <div className='flex space-x-2  '>
+      <div className="flex space-x-2  ">
         {Object.keys(categorizedWords)
           .sort()
           .map((letter) => (
@@ -105,7 +105,7 @@ function WordList({ tag }) {
                 className="text-xl p-2 font-bold cursor-pointer bg-stone-300 rounded-lg "
                 onClick={() => toggleCategory(letter)}
               >
-                {letter} {expandedCategory === letter ? '-' : '+'}
+                {letter} {expandedCategory === letter ? "-" : "+"}
               </h4>
               {expandedCategory === letter && (
                 <ul className="list-disc pl-5 ">
@@ -136,17 +136,6 @@ function WordList({ tag }) {
       </div>
     </div>
   );
-
-  // return (
-  //   <div>
-  //     <h3 className="text-lg font-semibold">Words:</h3>
-  //     <ul className="list-disc pl-5">
-  //       {words.map((word, index) => (
-  //         <li key={index}>{word.word}</li>
-  //       ))}
-  //     </ul>
-  //   </div>
-  // );
 }
 
 WordList.propTypes = {
