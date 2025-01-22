@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 const dictionaryUrl =
-  'https://1rnoszgn46.execute-api.us-east-1.amazonaws.com/multi-details';
+  "https://1rnoszgn46.execute-api.us-east-1.amazonaws.com/multi-details";
 
 function DictionaryList({ setTag }) {
   const [dictionaries, setDictionaries] = useState([]); // To store the list of dictionaries
@@ -11,7 +11,7 @@ function DictionaryList({ setTag }) {
     fetch(dictionaryUrl)
       .then((response) => response.json())
       .then((data) => setDictionaries(data.dictionaries))
-      .catch((error) => console.error('Error fetching dictionaries:', error));
+      .catch((error) => console.error("Error fetching dictionaries:", error));
   }, []);
 
   return (
