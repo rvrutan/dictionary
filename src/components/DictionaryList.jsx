@@ -20,7 +20,7 @@ function DictionaryList({ setTag }) {
         {dictionaries.map((dictionary) => (
           <button
             key={dictionary._id}
-            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-3xl mx-8 my-8"
+            className="bg-indigo-600 hover:bg-indigo-900 text-white font-bold py-2 px-4 rounded-3xl mx-8 my-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"
             onClick={() => setTag(dictionary.tags[0])}
           >
             <p>{dictionary.title}</p>

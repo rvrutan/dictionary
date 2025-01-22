@@ -11,10 +11,10 @@ function App() {
 
   return (
     <>
-      <div className="bg-red-300">
+      <div className="bg-indigo-300 text-center text-color font-mono">
         <Home />
         <DictionaryList setTag={setTag}/>
-        <div>{tag}</div>
+        <div className='capitalize text-3xl font-bold'>{tag}</div>
         <WordList tag={tag} />
       </div>
     </>
