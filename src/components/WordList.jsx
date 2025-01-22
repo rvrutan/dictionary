@@ -95,29 +95,29 @@ function WordList({ tag }) {
 
   return (
     <div>
-      <h3 className="text-lg font-semibold">Words:</h3>
-      <div>
+      <h3 className="text-2xl font-semibold p-4">Words:</h3>
+      <div className='flex space-x-2  '>
         {Object.keys(categorizedWords)
           .sort()
           .map((letter) => (
             <div key={letter} className="mb-4">
               <h4
-                className="text-md font-bold cursor-pointer"
+                className="text-xl p-2 font-bold cursor-pointer bg-stone-300 rounded-lg "
                 onClick={() => toggleCategory(letter)}
               >
                 {letter} {expandedCategory === letter ? '-' : '+'}
               </h4>
               {expandedCategory === letter && (
-                <ul className="list-disc pl-5">
+                <ul className="list-disc pl-5 ">
                   {categorizedWords[letter].map((wordObj, index) => (
                     <li
                       key={index}
-                      className="cursor-pointer text-blue-500 hover:underline"
+                      className="text-lg cursor-pointer text-white hover:border-2"
                       onClick={() => handleWordClick(wordObj)}
                     >
                       {wordObj.word}
                       {selectedWord && selectedWord.word === wordObj.word && (
-                        <div className="text-sm text-gray-700 ml-4">
+                        <div className="text-md text-gray-700 ml-4">
                           {loadingDefinition ? (
                             <p>Loading definition...</p>
                           ) : definitionError ? (
