@@ -2,6 +2,7 @@ import { Home } from "./components/pages/Home";
 import DictionaryList from "./components/DictionaryList";
 import WordList from "./components/WordList";
 import { useState } from "react";
+import Footer from "./components/Footer";
 
 function App() {
   const [tag, setTag] = useState("");
@@ -13,6 +14,7 @@ function App() {
         <DictionaryList setTag={setTag} />
         <div className="capitalize text-3xl font-bold">{tag}</div>
         <WordList tag={tag} />
+        <Footer />
       </div>
     </>
   );
