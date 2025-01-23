@@ -94,21 +94,21 @@ function WordList({ tag }) {
   };
 
   return (
-    <div>
-      <h3 className="text-2xl font-semibold p-4">Words:</h3>
-      <div className="flex space-x-2  ">
+    <div className="px-4 py-2">
+      <h3 className="text-2xl font-semibold p-4 text-center md:text-center">Words:</h3>
+      <div className="flex flex-wrap justify-center md:flex-row sm:flex-col gap-4">
         {Object.keys(categorizedWords)
           .sort()
           .map((letter) => (
-            <div key={letter} className="mb-4">
+            <div key={letter} className="w-full sm:w-1/3 md:w-1/5 mb-4">
               <h4
-                className="text-xl p-2 font-bold cursor-pointer bg-stone-300 rounded-lg "
+                className="text-xl p-2 font-bold cursor-pointer bg-stone-300 rounded-lg text-center md:text-center"
                 onClick={() => toggleCategory(letter)}
               >
                 {letter} {expandedCategory === letter ? "-" : "+"}
               </h4>
               {expandedCategory === letter && (
-                <ul className="list-disc pl-5 ">
+                <ul className="list-disc pl-5">
                   {categorizedWords[letter].map((wordObj, index) => (
                     <li
                       key={index}
