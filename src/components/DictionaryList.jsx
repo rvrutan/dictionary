@@ -15,15 +15,16 @@ function DictionaryList({ setTag }) {
   }, []);
 
   return (
-    <div className="px-4 py-2">
+    <div className="p-4">
+      <h3 className="text-2xl font-semibold p-4 text-center">Available Dictionaries</h3>
       <div className="flex flex-wrap justify-center gap-4">
         {dictionaries.map((dictionary) => (
           <button
             key={dictionary._id}
-            className="bg-indigo-600 hover:bg-indigo-900 text-white font-bold py-2 px-6 rounded-3xl my-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 w-full sm:w-auto"
+            className="btn btn-primary shadow-lg transition-all duration-200 ease-in-out transform hover:scale-105 hover:bg-primary-focus"
             onClick={() => setTag(dictionary.tags[0])}
           >
-            <p className="text-center">{dictionary.title}</p>
+            <p className="text-center text-lg">{dictionary.title}</p>
           </button>
         ))}
       </div>
