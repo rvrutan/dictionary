@@ -3,7 +3,7 @@ import DictionaryList from "./components/DictionaryList";
 import WordList from "./components/WordList";
 import { useState } from "react";
 import Footer from "./components/Footer";
-import  PickWordGame  from "./components/PickWordGame";
+// import  PickWordGame  from "./components/PickWordGame";
 
 function App() {
   const [tag, setTag] = useState(""); // Track the selected tag
@@ -56,7 +56,7 @@ function App() {
         )}
         {mode === "game" && (
           <>
-            <PickWordGame tag={tag} />
+            {/* <PickWordGame tag={tag} /> */}
             <button
               className="btn btn-outline mt-4"
               onClick={handleGoBack}
