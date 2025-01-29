@@ -16,7 +16,6 @@ function WordList({ tag }) {
   const [loadingDefinition, setLoadingDefinition] = useState(false);
   const [definitionError, setDefinitionError] = useState(null);
 
-  // Fetch words based on the selected tag
   useEffect(() => {
     setLoading(true);
     setError(null);
@@ -40,7 +39,6 @@ function WordList({ tag }) {
       });
   }, [tag]);
 
-  // Fetch definition for a selected word
   const fetchDefinition = (wordObj) => {
     setLoadingDefinition(true);
     setDefinitionError(null);
@@ -68,18 +66,26 @@ function WordList({ tag }) {
       prev && prev.word === wordObj.word ? null : wordObj
     );
 
-    // Fetch definition for the selected word
     if (!selectedWord || selectedWord.word !== wordObj.word) {
       fetchDefinition(wordObj);
     } else {
-      setDefinition(null); // Clear the definition if deselecting the word
+      setDefinition(null);
     }
   };
 
-  if (loading) return <p>Loading words...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading)
+    return (
+      <div className="alert alert-info shadow-lg">
+        <div>Loading words...</div>
+      </div>
+    );
+  if (error)
+    return (
+      <div className="alert alert-error shadow-lg">
+        <div>Error: {error}</div>
+      </div>
+    );
 
-  // Categorize words by their first letter
   const categorizedWords = words.reduce((acc, wordObj) => {
     const firstLetter = wordObj.word[0].toUpperCase();
     if (!acc[firstLetter]) {
@@ -94,43 +100,48 @@ function WordList({ tag }) {
   };
 
   return (
-    <div className="px-4 py-2">
-      <h3 className="text-2xl font-semibold p-4 text-center md:text-center">Words:</h3>
-      <div className="flex flex-wrap justify-center md:flex-row sm:flex-col gap-4">
+    <div className="p-4">
+      <h3 className="text-3xl font-semibold p-4 text-center">Words</h3>
+      <div className="flex flex-wrap justify-center gap-4">
         {Object.keys(categorizedWords)
           .sort()
           .map((letter) => (
-            <div key={letter} className="w-full sm:w-1/3 md:w-1/5 mb-4">
-              <h4
-                className="text-xl p-2 font-bold cursor-pointer bg-stone-300 rounded-lg text-center md:text-center"
-                onClick={() => toggleCategory(letter)}
-              >
-                {letter} {expandedCategory === letter ? "-" : "+"}
-              </h4>
-              {expandedCategory === letter && (
-                <ul className="list-disc pl-5">
-                  {categorizedWords[letter].map((wordObj, index) => (
-                    <li
-                      key={index}
-                      className="text-lg cursor-pointer text-white hover:border-2"
-                      onClick={() => handleWordClick(wordObj)}
-                    >
-                      {wordObj.word}
-                      {selectedWord && selectedWord.word === wordObj.word && (
-                        <div className="text-md text-gray-700 ml-4">
-                          {loadingDefinition ? (
-                            <p>Loading definition...</p>
-                          ) : definitionError ? (
-                            <p>Error: {definitionError}</p>
-                          ) : (
-                            <p>Definition: {definition}</p>
+            <div key={letter} className="w-full sm:w-1/3 md:w-1/5">
+              <div className="collapse collapse-arrow bg-base-200 shadow-md">
+                <input
+                  type="checkbox"
+                  checked={expandedCategory === letter}
+                  onChange={() => toggleCategory(letter)}
+                />
+                <div className="collapse-title text-xl font-bold">
+                  {letter} {expandedCategory === letter ? "-" : "+"}
+                </div>
+                <div className="collapse-content">
+                  <ul className="list-disc pl-5">
+                    {categorizedWords[letter].map((wordObj, index) => (
+                      <li
+                        key={index}
+                        className="text-lg cursor-pointer hover:underline"
+                        onClick={() => handleWordClick(wordObj)}
+                      >
+                        {wordObj.word}
+                        {selectedWord &&
+                          selectedWord.word === wordObj.word && (
+                            <div className="card bg-base-100 shadow-md mt-2 p-2">
+                              {loadingDefinition ? (
+                                <p>Loading definition...</p>
+                              ) : definitionError ? (
+                                <p>Error: {definitionError}</p>
+                              ) : (
+                                <p>Definition: {definition}</p>
+                              )}
+                            </div>
                           )}
-                        </div>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
           ))}
       </div>
