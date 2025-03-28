@@ -28,17 +28,17 @@ function App() {
         {tag && !mode && (
           <div className="flex justify-center gap-4 mt-4">
             <button
-              className="btn btn-primary"
+              className="btn btn-primary mb-8"
               onClick={() => handleModeSelection("words")}
             >
               Get Definitions
             </button>
-            <button
+            {/* <button
               className="btn btn-primary"
               onClick={() => handleModeSelection("game")}
             >
               Play Game
-            </button>
+            </button> */}
           </div>
         )}
 
