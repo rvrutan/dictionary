@@ -19,7 +19,7 @@ function App() {
 
   return (
     <>
-      <div className="bg-indigo-300 text-center text-color font-mono h-lvh ">
+      <div className="text-center text-color font-mono h-lvh ">
         <Home />
         <DictionaryList setTag={setTag} />
         <div className="capitalize text-3xl font-bold">{tag}</div>
@@ -47,7 +47,7 @@ function App() {
           <>
             <WordList tag={tag} />
             <button
-              className="btn btn-outline mt-4"
+              className="btn btn-outline mt-4 mb-4"
               onClick={handleGoBack}
             >
               Go Back
