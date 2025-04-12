@@ -165,7 +165,7 @@ function PickWordGame({ tag }) {
                 buttonClass = baseButtonClass + "bg-gray-300 text-gray-700";
               }
             } else {
-              buttonClass = baseButtonClass + "bg-secondary text-black hover:bg-blue-600";
+              buttonClass = baseButtonClass + "bg-secondary text-black hover:bg-accent";
             }
 
             return (
