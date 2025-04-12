@@ -20,7 +20,7 @@ function App() {
 
   return (
     <>
-      <div className="text-center text-color font-mono h-lvh ">
+      <div className="text-center text-color font-mono h-lvh" style={{ fontFamily: "'Noto Sans', sans-serif" }}>
         <Home />
         <DictionaryList setTag={setTag} />
         <div className="capitalize text-2xl p-4 font-bold">{tag}</div>

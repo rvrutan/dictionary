@@ -143,7 +143,7 @@ function PickWordGame({ tag }) {
         <span className="text-lg">Question {currentQuestion + 1} of {gameData.length}</span>
       </div>
       
-      <div className="mb-6 p-4 bg-stone-400 rounded-xl shadow-2xl">
+      <div className="mb-6 p-4 bg-base-300 rounded-xl shadow-2xl">
         <p className="text-xl font-semibold mb-4">{gameData[currentQuestion].definition}</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {gameData[currentQuestion].options.map((word, index) => {
@@ -165,7 +165,7 @@ function PickWordGame({ tag }) {
                 buttonClass = baseButtonClass + "bg-gray-300 text-gray-700";
               }
             } else {
-              buttonClass = baseButtonClass + "bg-blue-500 text-white hover:bg-blue-600";
+              buttonClass = baseButtonClass + "bg-secondary text-black hover:bg-blue-600";
             }
 
             return (
