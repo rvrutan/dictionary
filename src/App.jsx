@@ -3,6 +3,7 @@ import DictionaryList from "./components/DictionaryList";
 import WordList from "./components/WordList";
 import { useState } from "react";
 import Footer from "./components/Footer";
+import PickWordGame from "./components/PickWordGame";
 // import  PickWordGame  from "./components/PickWordGame";
 
 function App() {
@@ -28,17 +29,17 @@ function App() {
         {tag && !mode && (
           <div className="flex justify-center gap-4 mt-4">
             <button
-              className="btn btn-primary mb-8"
+              className="btn btn-secondary mb-8"
               onClick={() => handleModeSelection("words")}
             >
               Get Definitions
             </button>
-            {/* <button
-              className="btn btn-primary"
+            <button
+              className="btn btn-secondary"
               onClick={() => handleModeSelection("game")}
             >
               Play Game
-            </button> */}
+            </button>
           </div>
         )}
 
@@ -47,7 +48,7 @@ function App() {
           <>
             <WordList tag={tag} />
             <button
-              className="btn mt-4 mb-4"
+              className="btn btn-neutral mt-4 mb-4"
               onClick={handleGoBack}
             >
               Back
@@ -56,9 +57,9 @@ function App() {
         )}
         {mode === "game" && (
           <>
-            {/* <PickWordGame tag={tag} /> */}
+            <PickWordGame tag={tag} />
             <button
-              className="btn mt-4"
+              className="btn btn-neutral mt-4"
               onClick={handleGoBack}
             >
             Back

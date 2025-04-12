@@ -116,7 +116,7 @@ function WordList({ tag }) {
                   {letter} {expandedCategory === letter ? "-" : "+"}
                 </div>
                 <div className="collapse-content">
-                  <ul className="list-disc pl-5">
+                  <ul className="list-disc pl-5 ">
                     {categorizedWords[letter].map((wordObj, index) => (
                       <li
                         key={index}
@@ -124,18 +124,17 @@ function WordList({ tag }) {
                         onClick={() => handleWordClick(wordObj)}
                       >
                         {wordObj.word}
-                        {selectedWord &&
-                          selectedWord.word === wordObj.word && (
-                            <div className="card bg-base-100 shadow-md mt-2 p-2">
-                              {loadingDefinition ? (
-                                <p>Loading definition...</p>
-                              ) : definitionError ? (
-                                <p>Error: {definitionError}</p>
-                              ) : (
-                                <p>Definition: {definition}</p>
-                              )}
-                            </div>
-                          )}
+                        {selectedWord && selectedWord.word === wordObj.word && (
+                          <div className="card bg-base-100 shadow-md mt-2 p-2">
+                            {loadingDefinition ? (
+                              <p>Loading definition...</p>
+                            ) : definitionError ? (
+                              <p>Error: {definitionError}</p>
+                            ) : (
+                              <p>{definition}</p>
+                            )}
+                          </div>
+                        )}
                       </li>
                     ))}
                   </ul>
