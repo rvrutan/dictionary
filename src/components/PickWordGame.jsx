@@ -156,11 +156,11 @@ function PickWordGame({ tag }) {
               const selected = word === selectedAnswer;
 
               if (selected && correct) {
-                buttonClass = baseButtonClass + "bg-green-500 text-white";
+                buttonClass = baseButtonClass + "bg-success text-white";
               } else if (selected && !correct) {
-                buttonClass = baseButtonClass + "bg-red-500 text-white";
+                buttonClass = baseButtonClass + "bg-error text-white";
               } else if (!selected && correct) {
-                buttonClass = baseButtonClass + "bg-green-500 text-white";
+                buttonClass = baseButtonClass + "bg-success text-white";
               } else {
                 buttonClass = baseButtonClass + "bg-gray-300 text-gray-700";
               }
