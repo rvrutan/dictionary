@@ -22,7 +22,7 @@ function App() {
       <div className="text-center text-color font-mono h-lvh ">
         <Home />
         <DictionaryList setTag={setTag} />
-        <div className="capitalize text-3xl font-bold">{tag}</div>
+        <div className="capitalize text-2xl p-4 font-bold">{tag}</div>
 
         {/* Show options only when a dictionary is selected */}
         {tag && !mode && (
@@ -47,10 +47,10 @@ function App() {
           <>
             <WordList tag={tag} />
             <button
-              className="btn btn-outline mt-4 mb-4"
+              className="btn mt-4 mb-4"
               onClick={handleGoBack}
             >
-              Go Back
+              Back
             </button>
           </>
         )}
@@ -58,10 +58,10 @@ function App() {
           <>
             {/* <PickWordGame tag={tag} /> */}
             <button
-              className="btn btn-outline mt-4"
+              className="btn mt-4"
               onClick={handleGoBack}
             >
-              Go Back
+            Back
             </button>
           </>
         )}

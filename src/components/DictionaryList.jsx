@@ -15,8 +15,7 @@ function DictionaryList({ setTag }) {
   }, []);
 
   return (
-    <div className="p-4">
-      <h3 className="text-2xl font-semibold p-4 text-center">Available Dictionaries</h3>
+    <div className="">
       <div className="flex flex-wrap justify-center gap-4">
         {dictionaries.map((dictionary) => (
           <button

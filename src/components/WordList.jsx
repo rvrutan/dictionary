@@ -75,7 +75,7 @@ function WordList({ tag }) {
 
   if (loading)
     return (
-      <div className="alert alert-info shadow-lg">
+      <div className="alert shadow-lg">
         <div>Loading words...</div>
       </div>
     );
@@ -101,7 +101,6 @@ function WordList({ tag }) {
 
   return (
     <div className="p-4">
-      <h3 className="text-3xl font-semibold p-4 text-center">Words</h3>
       <div className="flex flex-wrap justify-center gap-4">
         {Object.keys(categorizedWords)
           .sort()
