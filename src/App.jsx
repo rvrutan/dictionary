@@ -38,7 +38,7 @@ function App() {
               className="btn btn-secondary"
               onClick={() => handleModeSelection("game")}
             >
-              Play Game
+              Take a Quiz
             </button>
           </div>
         )}

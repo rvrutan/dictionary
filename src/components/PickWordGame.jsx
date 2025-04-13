@@ -120,7 +120,7 @@ function PickWordGame({ tag }) {
   if (loading)
     return (
       <div className="flex justify-center items-center h-32">
-        <div className="text-xl">Loading game...</div>
+        <div className="text-xl">Loading quiz...</div>
       </div>
     );
   if (error)
@@ -132,10 +132,6 @@ function PickWordGame({ tag }) {
 
   return (
     <div className="p-4 max-w-4xl mx-auto">
-      <div className="mb-8 p-4 rounded-lg">
-        <h3 className="text-xl font-bold mb-2">How to Play</h3>
-        <p className="mb-2">Click the word that matches the definition. You'll see your score and can move to the next question after each guess.</p>
-      </div>
 
       <h3 className="text-2xl font-bold mb-4">Pick the Right Word</h3>
       <div className="mb-4 flex justify-between items-center">
@@ -189,7 +185,7 @@ function PickWordGame({ tag }) {
               className="btn btn-neutral"
               onClick={nextQuestion}
             >
-              {currentQuestion < gameData.length - 1 ? "Next Question" : "Play Again"}
+              {currentQuestion < gameData.length - 1 ? "Next Question" : "Restart"}
             </button>
           </div>
         </div>
